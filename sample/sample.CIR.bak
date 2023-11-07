@@ -1,10 +1,10 @@
 SMALL SAMPLE CIRCUIT
 
-#REVISION: Rev: 43
+#REVISION: Rev: 42
 *#SYSINFO: Win 10.0.22621  12th Gen Intel(R) Core(TM) i9-12950HX
 
 .INC sample.MIS
-.PRINT TRAN/ALL v(out) v(in)
+.PRINT TRAN/ALL v(out)
 .PRINT FILE output.csv
 X1 IN A  7404  
 R1 A 1  10K  

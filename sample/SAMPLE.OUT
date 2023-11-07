@@ -1,83 +1,326 @@
-*******06-NOV-2023*****TopSPICE  7.07c   Win32 *******21:06:51********
-
- SMALL SAMPLE CIRCUIT                                                            
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ INPUT FILE: C:\USERS\RGONZALEZ\ONEDRIVE - SWRI\PROJECTS\SPYCE\SAMPLE\SAMPLE.CIR
+ SMALL SAMPLE CIRCUIT                                                                                                            
                                                                                                                                                       	
  ****     INPUT LISTING                    TEMPERATURE =   27.000 DEG C
 
- **************************************************Ser#707TN2755-504***
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+                     
+
+ #REVISION: Rev: 43
+ *#SYSINFO: Win 10.0.22621  12th Gen Intel(R) Core(TM) i9-12950HX
+
+ *START .INC SAMPLE.MIS
+ *END .INC SAMPLE.MIS
+
+ .PRINT TRAN/ALL v(out) v(in)
+ .PRINT FILE output.csv
+ X1 IN A  7404
+ R1 A 1  10K
+ R2 VCC OUT  1K
+ COUT OUT 0  0.1PF
+ VIN IN 0 PULSE 0 4.5V 4n 5n 5n 60n 100n 10
+ Q2 OUT 1 0  Q
+
+ * Power rail voltage sources
+ VCC VCC 0 5V
+
+ * TopSpice Schematic 10.20  Simulation Setup Commands
+ .TRAN 0 1E-06
+
+*WARNING: .TRAN TSTEP PARAMETER INCORRECT ... RESET TO    1.0000E-08 secs.
+
+ .OPTION SAVEOPB
 
 
 
- #REVISION: Rev: 39      
+ **** Library call definitions ****
+ *TopSpice library: Models\Digital\TTL
+ *
+ .SUBCKT 7404  1  2
+ *             in out
+ U1 INV 2 1 TTL TTLUIO
+ .ENDS 7404
 
- *START .INC SAMPLE.MIS  
- *END .INC SAMPLE.MIS    
- .PRINT TRAN/ALL v(out) output.csv       
-0WARNING:  unrecognizable output variable OUTPUT.CSV on above line
 
- .out output.csv 
-0*ERROR*:  UNKNOWN DATA STATEMENT:  .OUT    
 
- X1 IN A  7404   
- R1 A 1  10K     
- R2 VCC OUT  1K  
- COUT OUT 0  0.1PF       
- VIN IN 0 PULSE 0 4.5V 4n 5n 5n 60n 100n 10      
- Q2 OUT 1 0  Q   
-         
- * Power rail voltage sources    
- VCC VCC 0 5V    
-         
- *START .INC SAMPLE.CMD  
- * TopSPICE Schematic 7.07e Win32  Simulation Setup Commands     
-         
- .TRAN 0 1E-006  
-0WARNING: .TRAN TSTEP PARAMETER INCORRECT ... RESET TO    1.0000E-08 secs.
+ * From library: C:\Program Files\TopSpice\verX10\DEFAULT.LIB
+ .MODEL Q NPN
+ **** End of library call definitions ****
 
- .PROBE  
-         
- .OPTION SAVEOPB 
- *END .INC SAMPLE.CMD    
-         
-         
- **** Library call definitions ****      
-         
- *Library: Models\Digital\TTL    
- *       
- .SUBCKT 7404  1  2      
- *             in out    
- U1 INV 2 1 TTL TTLUIO   
- .ENDS 7404      
-         
-         
- * From library: C:\Program Files (x86)\TopSPICE\DEFAULT.LIB     
- .MODEL Q NPN    
- **** End of library call definitions ****       
-         
- **** Level   2 library call definitions ****    
-         
- * From library: C:\Program Files (x86)\TopSPICE\DEFAULT.LIB     
+ **** Level   2 library call definitions ****
+
+ * From library: C:\Program Files\TopSpice\verX10\LOGICDEFAULT.LIB
  .MODEL ATOD ATOD
-         
- * From library: C:\Program Files (x86)\TopSPICE\DEFAULT.LIB     
- .MODEL DTOA DTOA
-         
- *Library: Models\Digital\TTL    
- *       
- .MODEL TTL UGATE (      
- +   TPLH=1.2E-008 TPHL=8E-009 ) 
-         
-         
- *Library: Models\Digital\TTL    
- *       
- .MODEL TTLUIO UIO (     
- +   VLMAX=0.8 VHMIN=2.4 RIN=5000 RSRC=3000      
- +   TSW0=2E-009 TSW1=2E-009 TSWX=2E-009 TSWZ=2E-009     
- +   RHI0=1400 RHI1=650 RHIX=1350 RHIZ=200000    
- +   RLO0=25 RLO1=1500 RLOX=525 RLOZ=200000 )    
-         
- **** End of library call definitions ****       
-         
- .END    
 
-          ***** ERROR: JOB STOPPED
+ * From library: C:\Program Files\TopSpice\verX10\LOGICDEFAULT.LIB
+ .MODEL DTOA DTOA
+ *TopSpice library: Models\Digital\TTL
+ *
+ .MODEL TTL UGATE (
+ +   TPLH=1E-08 TPHL=7E-09 )
+
+ *TopSpice library: Models\Digital\TTL
+ *
+ .MODEL TTLUIO UIO (
+ +   VLMAX=0.8 VHMIN=2.4 RIN=5000 RSRC=3000
+ +   TSW0=1E-09 TSW1=1E-09 TSWX=1E-09 TSWZ=2E-09
+ +   RHI0=1400 RHI1=300 RHIX=1350 RHIZ=200000
+ +   RLO0=25 RLO1=1200 RLOX=525 RLOZ=200000 )
+
+ **** End of library call definitions ****
+
+ .END
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     CIRCUIT AND SIMULATION CHECK     TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+  
+  
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     BJT      MODEL PARAMETERS        TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+
+ MODEL TYPE DESCRIPTION:  NPN       BJT     
+
+ PARAMS.  Q         
+  
+ LEVEL         1
+ BF         100.0    
+ NF         1.000    
+ BR         1.000    
+ NR         1.000    
+ IS        1.0000E-16
+ TNOM       27.00    
+  
+  
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     A/D INT. MODEL PARAMETERS        TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+
+ MODEL TYPE DESCRIPTION:  ATOD      ATOD    
+
+ PARAMS.  ATOD      
+  
+ CIN        0.000    
+ RIN       1.0000E+09
+ RSRC      1.0000E+09
+ VLMAX%    0.1600    
+ VHMIN%    0.5000    
+  
+
+ MODEL TYPE DESCRIPTION:  DTOA      DTOA    
+
+ PARAMS.  DTOA      
+  
+ COUT       0.000    
+ RLO0       50.00    
+ RHI0       1500.    
+ RLO1       1500.    
+ RHI1       50.00    
+ TSW0      1.0000E-09
+ TSW1      1.0000E-09
+  
+
+ MODEL TYPE DESCRIPTION:  UIO       UIO     
+
+ PARAMS.  TTLUIO    
+  
+ CIN        0.000    
+ RIN       5.0000E+03
+ RSRC      3.0000E+03
+ VLMAX     0.8000    
+ VHMIN      2.400    
+ VLMAX%    0.1600    
+ VHMIN%    0.5000    
+ COUT       0.000    
+ RLO0       25.00    
+ RHI0       1400.    
+ RLO1       1200.    
+ RHI1       300.0    
+ RLOX       525.0    
+ RHIX       1350.    
+ RLOZ      2.0000E+05
+ RHIZ      2.0000E+05
+ TSW0      1.0000E-09
+ TSW1      1.0000E-09
+ TSWX      1.0000E-09
+ TSWZ      2.0000E-09
+  
+  
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     DIGITAL  MODEL PARAMETERS        TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+
+ MODEL TYPE DESCRIPTION:  UGATE     UGATE   
+
+ PARAMS.  TTL       
+  
+ TPLH      1.0000E-08
+ TPHL      7.0000E-09
+ TFOLH      0.000    
+ TFOHL      0.000    
+  
+
+
+  ** CIRCUIT CHECKING AND MODELS PROCESSING COMPLETED
+  ** CIRCUIT MATRIX SETUP COMPLETED
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     ANALYSIS                         TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     INITIAL DIGITAL NODE STATES      TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+             NODE     STATE
+
+            IN$AD     0
+             A$DA     1
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     INITIAL DIGITAL NODE STATES      TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+             NODE     STATE
+
+            IN$AD     0
+             A$DA     1
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+                 NODE       VOLTAGE
+
++              V(OUT)       7.89799356E-02
++               V(IN)       0.00000000E+00
++                V(A)       3.92542158E+00
++                V(1)       8.17987237E-01
++              V(VCC)       5.00000000E+00
+
+
+               SOURCE       CURRENT
+
++              I(VIN)       1.66666667E-03
++              I(VCC)      -4.92102006E-03
++         I(V$G_DPWR)      -1.02485947E-02
+
+
+               RESISTOR       CURRENT
+
++               I(R1)       3.10743434E-04
++               I(R2)       4.92102006E-03
++         I(R$G_DPWR)       5.00000000E-03
+
+ OP bias data written to SAVEOPB binary file: SAMPLE.OPB                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     SOURCE VOLTAGES AND CURRENTS     TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+
+     SOURCE NAME      CURRENT(A)      VOLTAGE(V)      POWER(W)
+
+     VIN               1.66667E-03     0.0000         0.0000    
+     VCC              -4.92102E-03     5.0000        2.46051E-02
+     V$G_DPWR         -1.02486E-02     5.0000        5.12430E-02
+
+
+     TOTAL POWER DISSIPATION   7.58481E-02 WATTS
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+
+
+ **** BIPOLAR JUNCTION TRANSISTORS
+
+           Q2      
+ MODEL     Q         
+ VCE           0.0790
+ VBE           0.8180
+ VBC           0.7390
+ VCS           0.0790
+ IC        4.9210E-03
+ IB        3.1075E-04
+ IE       -5.2318E-03
+ IS        0.0000E+00
+ RON       1.6050E+01
+ POWER     6.4285E-04
+ BETADC       15.8361
+
+
+*******07-NOV-2023***************TopSpice 10.20  Win64   *******11:35:27********
+ SMALL SAMPLE CIRCUIT                                                                                                            
+  
+ ****     TRANSIENT ANALYSIS               TEMPERATURE =   27.000 DEG C
+
+ ********************************************************17X*E=EDFC=TXBFH=Rgf[***
+
+
+ * .PRINT DATA WRITTEN TO FILE: OUTPUT.CSV                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+
+ ** TRANSIENT ANALYSIS COMPLETED
+
+
+         JOB CONCLUDED
+
+         Simulation Time          0.00 secs
+
+         TOTAL JOB TIME           0.02 secs
+
+
