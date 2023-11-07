@@ -1,0 +1,20 @@
+SMALL SAMPLE CIRCUIT
+
+#REVISION: Rev: 39
+
+.INC sample.MIS
+.PRINT TRAN/ALL v(out) output.csv
+.out output.csv
+X1 IN A  7404  
+R1 A 1  10K  
+R2 VCC OUT  1K  
+COUT OUT 0  0.1PF  
+VIN IN 0 PULSE 0 4.5V 4n 5n 5n 60n 100n 10 
+Q2 OUT 1 0  Q  
+
+* Power rail voltage sources
+VCC VCC 0 5V
+
+.INC sample.CMD
+
+.END

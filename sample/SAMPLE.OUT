@@ -1,0 +1,83 @@
+*******06-NOV-2023*****TopSPICE  7.07c   Win32 *******21:06:51********
+
+ SMALL SAMPLE CIRCUIT                                                            
+                                                                                                                                                      	
+ ****     INPUT LISTING                    TEMPERATURE =   27.000 DEG C
+
+ **************************************************Ser#707TN2755-504***
+
+
+
+ #REVISION: Rev: 39      
+
+ *START .INC SAMPLE.MIS  
+ *END .INC SAMPLE.MIS    
+ .PRINT TRAN/ALL v(out) output.csv       
+0WARNING:  unrecognizable output variable OUTPUT.CSV on above line
+
+ .out output.csv 
+0*ERROR*:  UNKNOWN DATA STATEMENT:  .OUT    
+
+ X1 IN A  7404   
+ R1 A 1  10K     
+ R2 VCC OUT  1K  
+ COUT OUT 0  0.1PF       
+ VIN IN 0 PULSE 0 4.5V 4n 5n 5n 60n 100n 10      
+ Q2 OUT 1 0  Q   
+         
+ * Power rail voltage sources    
+ VCC VCC 0 5V    
+         
+ *START .INC SAMPLE.CMD  
+ * TopSPICE Schematic 7.07e Win32  Simulation Setup Commands     
+         
+ .TRAN 0 1E-006  
+0WARNING: .TRAN TSTEP PARAMETER INCORRECT ... RESET TO    1.0000E-08 secs.
+
+ .PROBE  
+         
+ .OPTION SAVEOPB 
+ *END .INC SAMPLE.CMD    
+         
+         
+ **** Library call definitions ****      
+         
+ *Library: Models\Digital\TTL    
+ *       
+ .SUBCKT 7404  1  2      
+ *             in out    
+ U1 INV 2 1 TTL TTLUIO   
+ .ENDS 7404      
+         
+         
+ * From library: C:\Program Files (x86)\TopSPICE\DEFAULT.LIB     
+ .MODEL Q NPN    
+ **** End of library call definitions ****       
+         
+ **** Level   2 library call definitions ****    
+         
+ * From library: C:\Program Files (x86)\TopSPICE\DEFAULT.LIB     
+ .MODEL ATOD ATOD
+         
+ * From library: C:\Program Files (x86)\TopSPICE\DEFAULT.LIB     
+ .MODEL DTOA DTOA
+         
+ *Library: Models\Digital\TTL    
+ *       
+ .MODEL TTL UGATE (      
+ +   TPLH=1.2E-008 TPHL=8E-009 ) 
+         
+         
+ *Library: Models\Digital\TTL    
+ *       
+ .MODEL TTLUIO UIO (     
+ +   VLMAX=0.8 VHMIN=2.4 RIN=5000 RSRC=3000      
+ +   TSW0=2E-009 TSW1=2E-009 TSWX=2E-009 TSWZ=2E-009     
+ +   RHI0=1400 RHI1=650 RHIX=1350 RHIZ=200000    
+ +   RLO0=25 RLO1=1500 RLOX=525 RLOZ=200000 )    
+         
+ **** End of library call definitions ****       
+         
+ .END    
+
+          ***** ERROR: JOB STOPPED
