@@ -1,8 +1,11 @@
 SMALL SAMPLE CIRCUIT
 
-#REVISION: Rev: 34
+#REVISION: Rev: 43
+*#SYSINFO: Win 10.0.22621  12th Gen Intel(R) Core(TM) i9-12950HX
 
 .INC sample.MIS
+.PRINT TRAN/ALL v(out) v(in)
+.PRINT FILE output.csv
 X1 IN A  7404  
 R1 A 1  10K  
 R2 VCC OUT  1K  
@@ -13,6 +16,10 @@ Q2 OUT 1 0  Q
 * Power rail voltage sources
 VCC VCC 0 5V
 
-.INC sample.CMD
+* TopSpice Schematic 10.20  Simulation Setup Commands
+.TRAN 0 1E-06
+
+.OPTION SAVEOPB
+
 
 .END
